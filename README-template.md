@@ -38,8 +38,8 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](https://your-solution-url.com)
-- [Live site URL](https://your-live-site-url.com)
+- [Solution URL](https://www.frontendmentor.io/solutions/multistepform-IzJ8IC0Rvf)
+- [Live Site URL](https://anirudh1970.github.io/Multi-step-form-Frontendmentor.io/)
 
 ## My process
 
