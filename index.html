@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Multi-step form</title>
+</head>
+<body>
+  <main>
+    <section>
+  <div class="form">
+    <div class="sidebar">
+      
+    <div class="steps">
+      <div class="step-button" id="s1">1</div>
+      <div class="step-text">
+        <div class="step-p1">STEP 1</div>
+        <div class="step-p2">YOUR INFO</div>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step-button" id="s2">2</div>
+      <div class="step-text">
+        <div class="step-p1">STEP 2</div>
+        <div class="step-p2">SELECT PLAN</div>
+      </div>
+    </div>
+    
+    <div class="steps">
+      <div class="step-button" id="s3">3</div>
+      <div class="step-text">
+        <div class="step-p1">STEP 3</div>
+        <div class="step-p2">ADD-ONS</div>
+      </div>
+    </div>
+    
+    <div class="steps">
+      <div class="step-button" id="s4">4</div>
+      <div class="step-text">
+        <div class="step-p1">STEP 4</div>
+        <div class="step-p2">SUMMARY</div>
+      </div>
+    </div>
+
+    </div>
+    
+    <form class="entry-fields" id="step1">
+    <div class="heading-with-instruction">
+    <div class="right-side-heading"><h1>Personal info</h1></div>
+    <div id="instruction">Please provide your name, email address, and phone number.</div>
+    </div>
+
+    <div class="name-with-textbox">
+      <div class="heading">Name<div class="error-message" id="error_name"></div></div>
+      <input type="text" class="textbox" id="name" placeholder=" eg. Stephen King">
+    </div>
+
+    <div class="email-with-textbox">
+    <div class="heading">Email Address<div class="error-message" id="error_email"></div></div>
+      <input type="text" class="textbox" id="email" placeholder=" stephenking@lorem.com">
+    </div>
+    
+    <div class="phone-with-textbox">
+    <div class="heading">Phone Number<div class="error-message" id="error_phone"></div></div>
+    <input type="text" class="textbox" id="phone" placeholder=" e.g. +1 234 567 890">
+    </div>
+    <div class="buttons">
+      <input type="button" class="next-button" value="Next Step" onclick="validateForm1()">
+    </div>
+    </form>
+    
+    <form class="entry-fields" id="step2">
+      <div class="heading-with-instruction">
+        <div class="right-side-heading">Select your plan</div>
+        <div id="instruction">You have the option of monthly or yearly billing.</div>
+      </div>
+      <div class="plans">
+        <div class="plan" id="arcade-plan" onclick="planValidate(0)">
+          <div class="logo">
+            <img src="./assets/images/icon-arcade.svg" alt="" class="plan-image">
+          </div>
+          <div class="plan-name-cost-offer"> 
+            <div class="plan-text">Arcade</div>
+            <div class="cost" id="arc-cost">$9/mo</div>
+            <div class="offer" id="arcade-offer-yearly">2 months free</div>
+          </div>
+        </div>
+        
+        <div class="plan" id="advanced-plan" onclick="planValidate(1)">
+          <div class="logo"><img src="./assets/images/icon-advanced.svg" alt="" class="plan-image"></div>
+          <div class="plan-name-cost-offer"> 
+            <div class="plan-text">Advanced</div>
+            <div class="cost" id="adv-cost">$12/mo</div>
+            <div class="offer" id="advanced-offer-yearly">2 months free</div>
+          </div>
+        </div>
+        
+        <div class="plan" id="pro-plan" onclick="planValidate(2)">
+          <div class="logo"><img src="./assets/images/icon-pro.svg" alt="" class="plan-image"></div>
+          <div class="plan-name-cost-offer"> 
+            <div class="plan-text">Pro</div>
+            <div class="cost" id="pro-cost">$15/mo</div>
+            <div class="offer" id="pro-offer-yearly">2 months free</div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="error-message" id="plan-check"></div>
+
+      <div class="duration">
+          <div id="month">Monthly</div>
+          <div id="switch">
+            <label class="switch">
+              <input type="checkbox" id="check-box" onclick="checkBox()">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div id="year">Yearly</div>
+      </div>
+      
+      
+      <div class="buttons">
+        <input type="button" class="next-button" value="Next Step" onclick="validateForm2()">
+        <input type="button" class="go-back" value="Go Back" onclick="displayStep(1)">
+      </div>
+      
+    </form>
+
+    <form class="entry-fields" id="step3">
+      <div class="heading-with-instruction">
+        <div class="right-side-heading">Pick add-ons</div>
+        <div id="instruction">Add-ons help enhance your gaming experience.</div>
+      </div>
+      <div class="addons">
+        <div class="addon" id="addon-1" onclick="selectAddon(1)">
+          <label class="custom-checkbox" id="cc1">
+            <input type="checkbox" id="c1">
+            <span class="checkmark" id="sp1"></span>
+          </label>
+          <div class="addon-heading">Online service</div>
+          <div class="addon-description">Access to multiplayer games</div>
+          <div class="addon-cost" id="addon-cost-1"></div>
+        </div>
+        <div class="addon" id="addon-2" onclick="selectAddon(2)">
+          <label class="custom-checkbox" id="cc2">
+            <input type="checkbox" id="c2">
+            <span class="checkmark" id="sp2"></span>
+          </label>
+          <div class="addon-heading">Larger storage</div>
+          <div class="addon-description">Extra 1TB of cloud save</div>
+          <div class="addon-cost" id="addon-cost-2"></div>
+        </div>
+        <div class="addon" id="addon-3" onclick="selectAddon(3)">
+          <label class="custom-checkbox" id="cc3">
+            <input type="checkbox" id="c3">
+            <span class="checkmark" id="sp3"></span>
+          </label>
+          <div class="addon-heading">Customizable Profile</div>
+          <div class="addon-description"> Custom theme on your profile</div>
+          <div class="addon-cost" id="addon-cost-3"></div>
+        </div>
+      </div>
+      <div class="buttons">
+        <input type="button" class="next-button" value="Next Step" onclick="displayStep(4)">
+        <input type="button" class="go-back" value="Go Back" onclick="displayStep(2)">
+      </div>
+    </form>
+
+    <form class="entry-fields" id="step4">
+      <div class="heading-with-instruction">
+        <div class="right-side-heading">Finishing up</div>
+        <div id="instruction">Double-check everything looks OK before confirming.</div>
+      </div>
+      <div class="summary-box">
+        <div id="final-plan-with-cost">
+          <div class="final-plan"><div id="final-plan-text">text</div><a onclick="displayStep(2)" style="font-family:MyFont2;font-size:12px">Change</a></div>
+          <div id="final-plan-cost"></div>
+        </div>
+        <div class="selected-addons-here">
+          <div class="selected-addon" id="selected-addon-1"><div class="selected-addon-text" id="selected-addon-1-text"></div><div class="selected-addon-cost" id="selected-addon-1-cost"></div></div>
+          <div class="selected-addon" id="selected-addon-2"><div class="selected-addon-text" id="selected-addon-2-text"></div><div class="selected-addon-cost" id="selected-addon-2-cost"></div></div>
+          <div class="selected-addon" id="selected-addon-3"><div class="selected-addon-text" id="selected-addon-3-text"></div><div class="selected-addon-cost" id="selected-addon-3-cost"></div></div>
+        </div>
+      </div>
+      <div class="result-section"><div id="result-total-text"></div><div id="final-cost-here"></div></div>
+      <div class="buttons">
+        <input type="button" class="confirm-button" value="Confirm" onclick="displayStep(5)">
+        <input type="button" class="go-back" value="Go Back" onclick="displayStep(3)">
+      </div>
+    </form>
+
+    <form class="entry-fields" id="step5">
+      <div class="confirmation-page">
+        <div class="thank-you-image"><img src="./assets/images/icon-thank-you.svg" alt=""></div>
+        <div class="thank-you-heading-message">Thank you!</div>
+        <div class="thank-you-message">Thanks for confirming your subscription! We hope you have fun 
+          using our platform. If you ever need support, please feel free 
+          to email us at support@anirudhgaming.com.</div>
+      </div>
+    </form>
+  </div>
+    </section>
+    <footer>
+    <div class="attribution">
+      Challenge by <nav><a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a></nav>
+    </div>  
+    </footer>
+  </main>
+</body>
+<script src="script.js"></script>
+</html>
